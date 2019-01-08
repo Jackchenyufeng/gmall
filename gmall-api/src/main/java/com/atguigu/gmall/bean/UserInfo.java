@@ -1,14 +1,41 @@
-package com.atguigu.gmall.user.bean;
+package com.atguigu.gmall.bean;
 
-public class UserInfo {
-    String id;
-    String loginName;
-    String nickName;
-    String passwd;
-    String name;
-    String phoneNum;
-    String email;
-    String headImg;
+import javax.persistence.Column;
+import javax.persistence.Id;
+import java.io.Serializable;
+import java.util.List;
+
+public class UserInfo implements Serializable {
+
+    @Id
+    @Column
+    private String id;
+    @Column
+    private String loginName;
+    @Column
+    private String nickName;
+    @Column
+    private String passwd;
+    @Column
+    private String name;
+    @Column
+    private String phoneNum;
+    @Column
+    private String email;
+    @Column
+    private String headImg;
+    @Column
+    private String userLevel;
+
+    private List<UserAddress> userAddressList;
+
+    public List<UserAddress> getUserAddressList() {
+        return userAddressList;
+    }
+
+    public void setUserAddressList(List<UserAddress> userAddressList) {
+        this.userAddressList = userAddressList;
+    }
 
     public String getId() {
         return id;
@@ -81,8 +108,4 @@ public class UserInfo {
     public void setUserLevel(String userLevel) {
         this.userLevel = userLevel;
     }
-
-    String userLevel;
-
-
 }
